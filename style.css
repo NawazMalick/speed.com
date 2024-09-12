@@ -1,0 +1,348 @@
+/* General Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Start from the top to allow scrolling */
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #cb9216, #88ca24);
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Wrapper to center content horizontally and allow scrolling */
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Container Styling */
+.container {
+    background: rgba(97, 113, 87, 0.7);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 600px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 3D Button Styling */
+button {
+    background: linear-gradient(145deg, #e41dbd, #3083d5);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+button:active {
+    transform: translateY(4px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Reset Button with different colors */
+.reset-button {
+    background: linear-gradient(145deg, #a01e1e, #36aca2);
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 600px) {
+    button {
+        font-size: 14px;
+        padding: 10px 20px;
+        margin: 8px;
+    }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.container {
+    animation: fadeIn 1s ease-in;
+}
+
+/* Scroll Behavior */
+html {
+    scroll-behavior: smooth; /* Optional smooth scrolling */
+}
+/* Note Banner Styling */
+.note-banner {
+    background-color: #3d3137; /* Bright yellow for visibility */
+    color: #fff9f9; /* Black text for contrast */
+    padding: 12px;
+    text-align: center;
+    font-size: 1em; /* Adjust font size for readability */
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    z-index: 1000;
+    border-bottom: 2px solid #000000; /* Distinct border for separation */
+    display: none; /* Default to hidden; shown only on mobile */
+}
+
+.note-banner p {
+    margin: 0;
+}
+/* For screens smaller than 600px */
+@media (max-width: 600px) {
+    .container {
+        width: 100%; /* Full width on mobile */
+        max-width: none; /* Remove max-width */
+    }
+    .start-button, .reset-button {
+        font-size: 12px; /* Adjust button size */
+        padding: 8px 12px; /* Smaller padding */
+    }
+    .speed-value {
+        font-size: 1.2em; /* Reduce font size of speedometer value */
+    }
+    .gauge {
+        margin: 10px;
+        max-width: 250px;
+        max-height: 250px; /* Scale down gauge */
+    }
+}
+
+/* Speedometer Needle Styling */
+.speed-needle {
+    position: absolute;
+    width: 2px;
+    height: 50%;
+    background-color: #ff3333;
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 6px rgba(238, 1, 1, 0.5);
+}
+
+/* Animating the Speed Circle Shadow */
+@keyframes pulseShadow {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 170, 255, 0.6), 0 0 20px rgba(0, 170, 255, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(0, 170, 255, 0.9), 0 0 30px rgba(0, 170, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 170, 255, 0.6), 0 0 20px rgba(0, 170, 255, 0.4);
+    }
+}
+
+/* Apply animation to Speed Foreground */
+.speed-foreground {
+    animation: pulseShadow 1.5s infinite;
+}
+
+/* Styling for speedometer title */
+.speedometer-title {
+    position: absolute;
+    top: 5%;
+    font-size: 1em;
+    color: #d32121;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Note Box Styling */
+.note-box {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(181, 16, 16, 0.2);
+    font-size: 0.8em;
+    color: #333;
+    display: none; /* Hidden by default, shown only when needed */
+}
+
+/* Adjust the layout for mobile devices */
+@media screen and (max-width: 480px) {
+    .speedometer {
+        width: 150px;
+        height: 150px;
+    }
+
+    .speed-value {
+        font-size: 1.5em;
+    }
+
+    .speed-unit {
+        font-size: 0.7em;
+    }
+
+    .note-box {
+        font-size: 0.7em;
+        padding: 8px;
+    }
+}
+
+/* 3D Start and Reset Buttons */
+.start-button, .reset-button {
+    background: linear-gradient(145deg, #e41dbd, #3083d5);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.start-button:active, .reset-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.reset-button {
+    background: linear-gradient(145deg, #a01e1e, #36aca2);
+}
+/* Speedometer Styling */
+.speedometer {
+    position: relative;
+    background-color: #332727;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50%; /* Perfect circle */
+    box-shadow: 0 4px 10px rgba(228, 206, 206, 0.722);
+    margin: 10px auto;
+    display: inline-block;
+    width: 200px; /* Adjusted for smaller screens */
+    height: 200px; 
+    text-align: center;
+}
+
+/* Speed and Distance Display */
+.speed-value, .distance-value {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: white;
+    left: 0;
+}
+
+/* Speed and km/h combined */
+.speed-value {
+    top: 40%; /* Vertical alignment within the circle */
+    font-size: 1.5em; /* Adjusted size */
+}
+
+/* Distance value below the speed */
+.distance-value {
+    top: 60%; /* Placed below the speed value */
+    font-size: 1.2em;
+}
+
+/* Speed Circle */
+.speed-circle {
+    display: block;
+    margin: auto;
+}
+
+/* Yellow Circle (Gauge) Styling */
+.speed-background {
+    stroke: #aec3aa;
+    stroke-width: 5;
+    fill: none;
+}
+
+.speed-foreground {
+    stroke: #ffcc00; /* Bright yellow color */
+    stroke-width: 5;
+    fill: none;
+    stroke-linecap: round;
+    stroke-dasharray: 283; /* Full circumference of the circle */
+    stroke-dashoffset: 283; /* Fully hidden at the start */
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg); /* Start the gauge at the top */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 600px) {
+    .speedometer {
+        width: 150px;
+        height: 150px;
+    }
+
+    .speed-value {
+        font-size: 1.3em;
+    }
+
+    .distance-value {
+        font-size: 1.1em;
+    }
+}
+
+/* Circular Gauge Styling */
+.gauge {
+    margin: 20px;
+    position: relative; /* Ensure it is centered properly */
+}
+
+#gaugeCanvas {
+    width: 100%;
+    height: auto; /* Ensure it scales properly */
+    max-width: 300px; /* Maximum width */
+    max-height: 300px; /* Maximum height */
+}
+
+.noise-values {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(54, 40, 40, 0.8);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(36, 125, 64, 0.438);
+    margin-top: 20px;
+}
+
+.noise-values p {
+    margin: 5px 0;
+    font-size: 1.2em;
+    background: linear-gradient(145deg, #921818, #444);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .start-button, .reset-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .noise-values p {
+        font-size: 1em;
+    }
+}
+.date-time {
+    margin: 20px 0;
+    font-size: 1.2em;
+}

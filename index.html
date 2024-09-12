@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    </head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noise Level Meter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <!-- Note Banner -->
+      <div id="noteBanner" class="note-banner">
+        <p>NOISE MEASURE AND SPEED CHECKER(desktop mode only)</p>
+    </div>
+    <div class="container">
+        <!-- Note Box -->
+<div id="noteBox" class="note-box">Please enable location access to use this feature.</div>
+<div class="wrapper"></div>
+    <div class="container">
+        <!-- 3D Start Button -->
+        <button id="startButton" class="start-button">Start Measuring</button>
+        
+        <!-- 3D Reset Button -->
+        <button id="resetButton" class="reset-button">Reset</button>
+        <!-- Export Button -->
+<button id="exportButton" class="start-button">Export Data</button>
+<!-- Export JSON Button -->
+<button id="exportJSONButton" class="start-button">Export Data (mobile)</button>
+<div class="speedometer-container">
+    <div class="speedometer">
+        <!-- Speed and unit together in one div -->
+        <div class="speed-value" id="speedValue">0.0 km/h</div>
+        
+        <!-- Distance covered -->
+        <div class="distance-value" id="distanceValue">0.0 km</div>
+        
+        <svg class="speed-circle" viewBox="0 0 100 100">
+            <circle class="speed-background" cx="50" cy="50" r="45"></circle>
+            <circle class="speed-foreground" id="speedCircle" cx="50" cy="50" r="45"></circle>
+        </svg>
+    </div>
+    
+    
+</div>
+
+<!-- Date and Time Display -->
+<div class="date-time">
+    <p>Current Date and Time: <span id="dateTime">--</span></p>
+</div>
+      <!-- Circular Gauge -->
+<div class="gauge">
+    <canvas id="gaugeCanvas"></canvas>
+</div>
+
+        <!-- Noise Level Display -->
+        <div class="noise-values">
+            <p>Min: <span id="minValue">--</span> dB</p>
+            <p>Average: <span id="avgValue">--</span> dB</p>
+            <p>Max: <span id="maxValue">--</span> dB</p>
+            <p>Real Time: <span id="currentValue">--</span> dB</p>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+    
